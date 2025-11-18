@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Products from "@/pages/Products";
@@ -13,6 +14,8 @@ import Contact from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
 function Router() {
+  useScrollToTop(); // Add scroll-to-top functionality
+
   return (
     <>
       <Navigation />

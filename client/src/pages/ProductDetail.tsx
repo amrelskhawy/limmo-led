@@ -4,7 +4,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, ArrowRight, CheckCircle2, Zap, Clock, Thermometer } from "lucide-react";
+import { AnimatedSection } from "@/components/ui/animated-section";
+import { StaggeredGrid } from "@/components/ui/staggered-grid";
+import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Zap,
+  Clock,
+  Thermometer,
+} from "lucide-react";
 import type { Product } from "@shared/schema";
 
 export default function ProductDetail() {
@@ -13,21 +23,26 @@ export default function ProductDetail() {
   const productId = params?.id;
 
   const { data: product, isLoading } = useQuery<Product>({
-    queryKey: ['/api/products', productId],
+    queryKey: ["/api/products", productId],
     enabled: !!productId,
   });
 
   const { data: allProducts } = useQuery<Product[]>({
-    queryKey: ['/api/products'],
+    queryKey: ["/api/products"],
   });
 
-  const relatedProducts = allProducts?.filter(
-    p => p.category === product?.category && p.id !== product?.id
-  ).slice(0, 3) || [];
+  const relatedProducts =
+    allProducts
+      ?.filter((p) => p.category === product?.category && p.id !== product?.id)
+      .slice(0, 3) || [];
 
   const handleRequestQuote = () => {
     if (product) {
-      setLocation(`/contact?productId=${product.id}&productName=${encodeURIComponent(product.name)}`);
+      setLocation(
+        `/contact?productId=${product.id}&productName=${encodeURIComponent(
+          product.name
+        )}`
+      );
     }
   };
 
@@ -54,7 +69,9 @@ export default function ProductDetail() {
     return (
       <div className="min-h-screen pt-16 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Product not found</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-4">
+            Product not found
+          </h1>
           <Link href="/products">
             <Button variant="default">Back to Products</Button>
           </Link>
@@ -66,15 +83,23 @@ export default function ProductDetail() {
   const specs = [
     { icon: Zap, label: "Wattage", value: product.wattage },
     { icon: Zap, label: "Lumens", value: product.lumens },
-    { icon: Thermometer, label: "Color Temperature", value: product.colorTemperature },
-    { icon: Clock, label: "Lifespan", value: product.lifespan }
+    {
+      icon: Thermometer,
+      label: "Color Temperature",
+      value: product.colorTemperature,
+    },
+    { icon: Clock, label: "Lifespan", value: product.lifespan },
   ];
 
   return (
     <div className="min-h-screen pt-16">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <Link href="/products">
-          <Button variant="ghost" className="gap-2 mb-8" data-testid="button-back">
+          <Button
+            variant="ghost"
+            className="gap-2 mb-8"
+            data-testid="button-back"
+          >
             <ArrowLeft className="h-4 w-4" />
             Back to Products
           </Button>
@@ -91,7 +116,10 @@ export default function ProductDetail() {
                     className="w-full h-full object-cover"
                     data-testid="img-product"
                   />
-                  <Badge className="absolute top-6 left-6" data-testid="badge-category">
+                  <Badge
+                    className="absolute top-6 left-6"
+                    data-testid="badge-category"
+                  >
                     {product.category}
                   </Badge>
                 </div>
@@ -101,10 +129,16 @@ export default function ProductDetail() {
 
           <div className="space-y-8">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-product-name">
+              <h1
+                className="text-4xl md:text-5xl font-bold text-foreground mb-4"
+                data-testid="text-product-name"
+              >
                 {product.name}
               </h1>
-              <p className="text-lg text-muted-foreground" data-testid="text-product-description">
+              <p
+                className="text-lg text-muted-foreground"
+                data-testid="text-product-description"
+              >
                 {product.description}
               </p>
             </div>
@@ -115,9 +149,13 @@ export default function ProductDetail() {
                   <CardContent className="p-4">
                     <div className="flex items-center gap-2 mb-1">
                       <spec.icon className="h-4 w-4 text-primary" />
-                      <div className="text-sm text-muted-foreground">{spec.label}</div>
+                      <div className="text-sm text-muted-foreground">
+                        {spec.label}
+                      </div>
                     </div>
-                    <div className="font-semibold text-foreground">{spec.value}</div>
+                    <div className="font-semibold text-foreground">
+                      {spec.value}
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -125,10 +163,16 @@ export default function ProductDetail() {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-4">Key Features</h3>
+                <h3 className="text-xl font-semibold text-foreground mb-4">
+                  Key Features
+                </h3>
                 <div className="space-y-3">
                   {product.features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3" data-testid={`feature-${index}`}>
+                    <div
+                      key={index}
+                      className="flex items-start gap-3"
+                      data-testid={`feature-${index}`}
+                    >
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-foreground">{feature}</span>
                     </div>
@@ -139,8 +183,13 @@ export default function ProductDetail() {
 
             <Card>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-4">Specifications</h3>
-                <div className="text-muted-foreground whitespace-pre-line" data-testid="text-specifications">
+                <h3 className="text-xl font-semibold text-foreground mb-4">
+                  Specifications
+                </h3>
+                <div
+                  className="text-muted-foreground whitespace-pre-line"
+                  data-testid="text-specifications"
+                >
                   {product.specifications}
                 </div>
               </CardContent>
@@ -159,7 +208,12 @@ export default function ProductDetail() {
                   <ArrowRight className="h-4 w-4" />
                 </Button>
                 <Link href="/contact">
-                  <Button size="lg" variant="outline" className="flex-1" data-testid="button-contact">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="flex-1"
+                    data-testid="button-contact"
+                  >
                     Contact Sales
                   </Button>
                 </Link>
@@ -170,7 +224,9 @@ export default function ProductDetail() {
 
         {relatedProducts.length > 0 && (
           <section className="py-12 border-t border-border">
-            <h2 className="text-3xl font-bold text-foreground mb-8">Related Products</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-8">
+              Related Products
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {relatedProducts.map((relatedProduct) => (
                 <Card
@@ -194,7 +250,11 @@ export default function ProductDetail() {
                         {relatedProduct.description}
                       </p>
                       <Link href={`/products/${relatedProduct.id}`}>
-                        <Button variant="ghost" className="w-full gap-2" data-testid={`button-related-${relatedProduct.id}`}>
+                        <Button
+                          variant="ghost"
+                          className="w-full gap-2"
+                          data-testid={`button-related-${relatedProduct.id}`}
+                        >
                           View Details
                           <ArrowRight className="h-4 w-4" />
                         </Button>
