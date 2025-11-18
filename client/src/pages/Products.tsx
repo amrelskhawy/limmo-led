@@ -7,12 +7,14 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { StaggeredGrid } from "@/components/ui/staggered-grid";
+import { useTranslation } from "@/i18n/context";
 import { motion } from "framer-motion";
 import { ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import type { Product } from "@shared/schema";
 
 export default function Products() {
+  const { t } = useTranslation();
   const [location] = useLocation();
   const params = new URLSearchParams(location.split("?")[1]);
   const initialCategory = params.get("category") || "all";
@@ -25,11 +27,11 @@ export default function Products() {
   });
 
   const categories = [
-    { id: "all", label: "All Products" },
-    { id: "office", label: "Office" },
-    { id: "industrial", label: "Industrial" },
+    { id: "all", label: t.products.allProducts },
+    { id: "office", label: t.home.applications.office.title },
+    { id: "industrial", label: t.home.applications.industrial.title },
     { id: "outdoor", label: "Outdoor" },
-    { id: "retail", label: "Retail" },
+    { id: "retail", label: t.home.applications.retail.title },
   ];
 
   const filteredProducts =
@@ -51,11 +53,10 @@ export default function Products() {
             animation="fadeInUp"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-              Our LED Solutions
+              {t.products.title}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground">
-              Discover our comprehensive range of professional LED lighting
-              products designed for maximum efficiency and performance
+              {t.home.heroDescription}
             </p>
           </AnimatedSection>
         </div>
@@ -70,7 +71,7 @@ export default function Products() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                   <Input
                     type="search"
-                    placeholder="Search products..."
+                    placeholder={t.common.search + "..."}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10"

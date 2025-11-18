@@ -1,67 +1,65 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { StaggeredGrid } from "@/components/ui/staggered-grid";
+import { useTranslation } from "@/i18n/context";
 import { motion } from "framer-motion";
 import { Target, Users, Award, TrendingUp } from "lucide-react";
 
 export default function About() {
+  const { t } = useTranslation();
   const values = [
     {
       icon: Target,
-      title: "Innovation",
-      description:
-        "Pioneering cutting-edge LED technology to create sustainable lighting solutions for the future.",
+      title: t.about.innovation.title,
+      description: t.about.innovation.description,
     },
     {
       icon: Users,
-      title: "Customer First",
-      description:
-        "Building lasting relationships through exceptional service and tailored solutions.",
+      title: t.about.customerFirst.title,
+      description: t.about.customerFirst.description,
     },
     {
       icon: Award,
-      title: "Quality Excellence",
-      description:
-        "Maintaining the highest standards in every product we deliver to our clients.",
+      title: t.about.quality.title,
+      description: t.about.quality.description,
     },
     {
       icon: TrendingUp,
-      title: "Sustainability",
-      description:
-        "Committed to reducing environmental impact through energy-efficient solutions.",
+      title: t.about.sustainability.title,
+      description: t.about.sustainability.description,
     },
   ];
 
   const milestones = [
     {
       year: "2015",
-      event: "Company Founded",
-      description: "Started with a vision to revolutionize commercial lighting",
+      event: t.about.milestones.founded.title,
+      description: t.about.milestones.founded.description,
     },
     {
       year: "2017",
-      event: "First Major Installation",
-      description: "Completed 100,000 sq ft office lighting project",
+      event: t.about.milestones.firstProject.title,
+      description: t.about.milestones.firstProject.description,
     },
     {
       year: "2019",
-      event: "ISO Certification",
-      description: "Achieved ISO 9001 quality management certification",
+      event: t.about.milestones.certification.title,
+      description: t.about.milestones.certification.description,
     },
     {
       year: "2021",
-      event: "10,000+ Installations",
+      event: "10,000+ " + t.home.stats.projectsCompleted,
       description: "Reached milestone of serving 500+ organizations",
     },
     {
       year: "2023",
-      event: "Sustainability Award",
-      description: "Recognized for environmental leadership in lighting",
+      event: t.about.milestones.innovation.title,
+      description: t.about.milestones.innovation.description,
     },
     {
       year: "2025",
-      event: "Global Expansion",
-      description: "Serving organizations across 20+ countries",
+      event: t.about.milestones.expansion.title,
+      description: t.about.milestones.expansion.description,
     },
   ];
 
@@ -74,13 +72,11 @@ export default function About() {
             animation="fadeInUp"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-              Illuminating the Path to a
-              <span className="text-primary"> Brighter Future</span>
+              {t.about.title}
+              <span className="text-primary"> - {t.about.description}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground">
-              At LuminaTech, we're more than just a lighting company. We're
-              innovators, problem-solvers, and partners in creating sustainable,
-              efficient spaces for organizations worldwide.
+              {t.about.missionText}
             </p>
           </AnimatedSection>
         </div>
@@ -91,7 +87,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection animation="fadeInLeft">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Our Story
+                {t.about.ourStory}
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <motion.p

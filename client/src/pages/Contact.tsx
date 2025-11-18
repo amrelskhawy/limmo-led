@@ -19,6 +19,7 @@ import {
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "@/i18n/context";
 import { apiRequest } from "@/lib/queryClient";
 import { Mail, Phone, MapPin, CheckCircle2 } from "lucide-react";
 
@@ -37,6 +38,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 export default function Contact() {
   const [location] = useLocation();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [isSuccess, setIsSuccess] = useState(false);
 
   const params = new URLSearchParams(location.split("?")[1]);
@@ -123,7 +125,7 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Thank You!
+                {t.common.success}!
               </motion.h2>
               <motion.p
                 className="text-muted-foreground mb-6"
@@ -131,8 +133,7 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                Your message has been sent successfully. Our team will get back
-                to you within 24 hours.
+                {t.contact.messageSent}
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -162,12 +163,10 @@ export default function Contact() {
             animation="fadeInUp"
           >
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-              Get in Touch
+              {t.contact.getInTouch}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground">
-              Have questions about our LED solutions? We're here to help. Fill
-              out the form below and our team will get back to you within 24
-              hours.
+              {t.contact.title} - {t.home.cta.description}
             </p>
           </AnimatedSection>
         </div>
@@ -208,7 +207,7 @@ export default function Contact() {
                           name="name"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Full Name *</FormLabel>
+                              <FormLabel>{t.contact.name} *</FormLabel>
                               <FormControl>
                                 <Input
                                   placeholder="John Doe"
@@ -226,7 +225,7 @@ export default function Contact() {
                           name="email"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Email Address *</FormLabel>
+                              <FormLabel>{t.contact.email} *</FormLabel>
                               <FormControl>
                                 <Input
                                   type="email"
@@ -247,7 +246,7 @@ export default function Contact() {
                           name="company"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Company Name *</FormLabel>
+                              <FormLabel>{t.contact.company} *</FormLabel>
                               <FormControl>
                                 <Input
                                   placeholder="Acme Corp"
@@ -265,7 +264,7 @@ export default function Contact() {
                           name="phone"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Phone Number</FormLabel>
+                              <FormLabel>{t.contact.phone}</FormLabel>
                               <FormControl>
                                 <Input
                                   type="tel"
@@ -285,7 +284,7 @@ export default function Contact() {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Message *</FormLabel>
+                            <FormLabel>{t.contact.message} *</FormLabel>
                             <FormControl>
                               <Textarea
                                 placeholder="Tell us about your lighting needs..."
@@ -311,8 +310,8 @@ export default function Contact() {
                           data-testid="button-submit"
                         >
                           {contactMutation.isPending
-                            ? "Sending..."
-                            : "Send Message"}
+                            ? t.common.loading
+                            : t.contact.send}
                         </Button>
                       </motion.div>
                     </motion.form>
@@ -341,10 +340,10 @@ export default function Contact() {
                         </motion.div>
                         <div>
                           <h3 className="font-semibold text-foreground mb-1">
-                            Email Us
+                            {t.contact.emailUs}
                           </h3>
                           <p className="text-sm text-muted-foreground mb-2">
-                            For general inquiries
+                            {t.contact.getInTouch}
                           </p>
                           <a
                             href="mailto:info@luminatech.com"

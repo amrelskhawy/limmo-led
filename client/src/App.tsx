@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { I18nProvider } from "@/i18n/context";
 import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -35,10 +36,14 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
+      <I18nProvider>
+        <TooltipProvider>
+          <div className="min-h-screen bg-background">
+            <Router />
+            <Toaster />
+          </div>
+        </TooltipProvider>
+      </I18nProvider>
     </QueryClientProvider>
   );
 }

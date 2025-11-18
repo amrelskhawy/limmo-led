@@ -6,6 +6,7 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { StaggeredGrid } from "@/components/ui/staggered-grid";
 import { ScrollIndicator } from "@/components/ui/scroll-indicator";
 import { SectionSeparator } from "@/components/ui/section-separator";
+import { useTranslation } from "@/i18n/context";
 import { motion } from "framer-motion";
 import {
   Zap,
@@ -22,56 +23,56 @@ import {
 } from "lucide-react";
 
 export default function Home() {
+  const { t } = useTranslation();
   const benefits = [
     {
       icon: Zap,
-      title: "Energy Efficient",
-      description:
-        "Reduce energy consumption by up to 80% compared to traditional lighting",
+      title: t.home.benefits.energyEfficient.title,
+      description: t.home.benefits.energyEfficient.description,
     },
     {
       icon: Leaf,
-      title: "Eco-Friendly",
-      description: "Sustainable solutions that minimize environmental impact",
+      title: t.home.benefits.ecoFriendly.title,
+      description: t.home.benefits.ecoFriendly.description,
     },
     {
       icon: TrendingDown,
-      title: "Lower Costs",
-      description: "Significant savings on electricity bills and maintenance",
+      title: t.home.benefits.costSavings.title,
+      description: t.home.benefits.costSavings.description,
     },
     {
       icon: Clock,
-      title: "Long Lasting",
-      description: "50,000+ hours lifespan means fewer replacements",
+      title: t.home.benefits.longLasting.title,
+      description: t.home.benefits.longLasting.description,
     },
   ];
 
   const categories = [
     {
       icon: Building2,
-      title: "Office Solutions",
-      description: "Perfect lighting for productive workspaces",
+      title: t.home.applications.office.title,
+      description: t.home.applications.office.description,
       category: "office",
     },
     {
       icon: Factory,
-      title: "Industrial Lighting",
-      description: "Robust solutions for demanding environments",
+      title: t.home.applications.industrial.title,
+      description: t.home.applications.industrial.description,
       category: "industrial",
     },
     {
       icon: Store,
-      title: "Retail Spaces",
-      description: "Enhance product displays and ambiance",
+      title: t.home.applications.retail.title,
+      description: t.home.applications.retail.description,
       category: "retail",
     },
   ];
 
   const stats = [
-    { value: "10K+", label: "Installations" },
-    { value: "500+", label: "Happy Clients" },
-    { value: "80%", label: "Energy Savings" },
-    { value: "24/7", label: "Support" },
+    { value: "15+", label: t.home.stats.yearsExperience },
+    { value: "500+", label: t.home.stats.happyClients },
+    { value: "1000+", label: t.home.stats.projectsCompleted },
+    { value: "80%", label: t.home.stats.energySaved },
   ];
 
   return (
@@ -101,7 +102,7 @@ export default function Home() {
               data-testid="badge-hero-new"
             >
               <Sparkles className="h-3 w-3" />
-              Professional LED Solutions
+              {t.home.heroSubtitle}
             </Badge>
           </motion.div>
           <motion.h1
@@ -110,9 +111,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            Illuminate Your Future
-            <br />
-            <span className="text-primary">with Smart LED Technology</span>
+            {t.home.heroTitle}
           </motion.h1>
           <motion.p
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
@@ -120,9 +119,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Transform your organization with energy-efficient, sustainable LED
-            lighting solutions. Professional-grade quality designed for modern
-            workspaces.
+            {t.home.heroDescription}
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -141,7 +138,7 @@ export default function Home() {
                   className="gap-2"
                   data-testid="button-hero-explore"
                 >
-                  Explore Products
+                  {t.home.exploreProducts}
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </motion.div>
@@ -157,7 +154,7 @@ export default function Home() {
                   className="backdrop-blur-sm bg-background/50"
                   data-testid="button-hero-quote"
                 >
-                  Get a Quote
+                  {t.home.cta.button}
                 </Button>
               </motion.div>
             </Link>
@@ -178,11 +175,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection className="text-center mb-16" animation="fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Why Choose LuminaTech?
+              {t.home.whyChooseUs}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Leading the industry with innovative, sustainable lighting
-              solutions
+              {t.footer.description}
             </p>
           </AnimatedSection>
 
@@ -231,10 +227,10 @@ export default function Home() {
             delay={0.2}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Solutions for Every Space
+              {t.home.applications.title}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tailored LED lighting solutions for diverse organizational needs
+              {t.home.heroDescription}
             </p>
           </AnimatedSection>
 
@@ -272,7 +268,7 @@ export default function Home() {
                         className="gap-2"
                         data-testid={`button-category-${category.category}`}
                       >
-                        Learn More
+                        {t.home.learnMore}
                         <ArrowRight className="h-4 w-4" />
                       </Button>
                     </Link>
@@ -374,11 +370,10 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection animation="scaleIn" delay={0.2}>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Ready to Transform Your Lighting?
+              {t.home.cta.title}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Contact us today for a free consultation and discover how our LED
-              solutions can benefit your organization
+              {t.home.cta.description}
             </p>
             <Link href="/contact">
               <motion.div
@@ -392,7 +387,7 @@ export default function Home() {
                   className="gap-2"
                   data-testid="button-cta-contact"
                 >
-                  Get Started Today
+                  {t.home.getStarted}
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </motion.div>
