@@ -6,7 +6,7 @@
 [build.environment]
   NODE_VERSION = "20"
 
-[[redirects]]
+  publish = "dist"
   from = "/api/*"
   to = "/.netlify/functions/api"
   status = 200
