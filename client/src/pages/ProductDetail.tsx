@@ -161,7 +161,7 @@ export default function ProductDetail() {
               <CardContent className="p-0">
                 <div className="relative bg-muted aspect-square">
                   <img
-                    src={product.imageUrl}
+                    src={window.location.origin + product.imageUrl}
                     alt={product.name}
                     className="w-full h-full object-cover"
                     data-testid="img-product"
@@ -287,7 +287,7 @@ export default function ProductDetail() {
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden bg-muted aspect-square">
                       <img
-                        src={window.location.origin + relatedProduct.imageUrl}
+                        src={relatedProduct.imageUrl}
                         alt={relatedProduct.name}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
