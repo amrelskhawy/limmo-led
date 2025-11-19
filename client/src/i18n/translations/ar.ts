@@ -54,6 +54,17 @@ export const ar: Translations = {
     whyChooseUs: "لماذا تختارنا",
     testimonials: "آراء العملاء",
     latestNews: "أحدث الأخبار",
+    ourCommitmentToQuality: "التزامنا بالجودة",
+    ourCommitmentToQualityDesc:
+      "كل منتج مدعوم بمعايير وشهادات رائدة في الصناعة",
+    ourCommitmentToQualityPoint1:
+      "منتجات حاصلة على شهادة 'نجمة الطاقة' (Energy Star) لتحقيق أقصى قدر من الكفاءة",
+    ourCommitmentToQualityPoint2: "ضمان لمدة 5 سنوات على جميع تركيبات LED",
+    ourCommitmentToQualityPoint3: "حاصلون على شهادة إدارة الجودة ISO 9001",
+    ourCommitmentToQualityPoint4: "استشارة مجانية ودعم لتصميم الإضاءة",
+    ourCommitmentToQualityPoint5: "تتوفر خدمات التركيب الاحترافية",
+    ourCommitmentToQualityPoint6:
+      "دعم العملاء وصيانة على مدار الساعة طوال أيام الأسبوع (24/7)",
     benefits: {
       energyEfficient: {
         title: "توفير الطاقة",

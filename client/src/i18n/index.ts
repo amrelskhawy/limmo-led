@@ -53,6 +53,14 @@ export interface Translations {
     whyChooseUs: string;
     testimonials: string;
     latestNews: string;
+    ourCommitmentToQuality: string;
+    ourCommitmentToQualityDesc: string;
+    ourCommitmentToQualityPoint1: string;
+    ourCommitmentToQualityPoint2: string;
+    ourCommitmentToQualityPoint3: string;
+    ourCommitmentToQualityPoint4: string;
+    ourCommitmentToQualityPoint5: string;
+    ourCommitmentToQualityPoint6: string;
     benefits: {
       energyEfficient: { title: string; description: string };
       costSavings: { title: string; description: string };

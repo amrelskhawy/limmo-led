@@ -43,41 +43,75 @@ export const en: Translations = {
     logout: "Logout",
   },
   home: {
-    heroTitle: "Hero Title",
-    heroSubtitle: "Hero Subtitle",
-    heroDescription: "Hero Description",
+    heroTitle: "Welcome to LuminForge",
+    heroSubtitle: "Professional Lighting Solutions",
+    heroDescription:
+      "We provide cutting-edge LED lighting technology solutions to help your business grow and succeed in the digital age.",
     learnMore: "Learn More",
-    getStarted: "Get Started",
+    getStarted: "Get Started Now",
     exploreProducts: "Explore Products",
     ourServices: "Our Services",
     whyChooseUs: "Why Choose Us",
     testimonials: "Testimonials",
     latestNews: "Latest News",
+    ourCommitmentToQuality: "Our Commitment to Quality",
+    ourCommitmentToQualityDesc:
+      "Every product is backed by industry-leading standards and certifications",
+    ourCommitmentToQualityPoint1:
+      "Energy Star certified products for maximum efficiency",
+    ourCommitmentToQualityPoint2: "5-year warranty on all LED fixtures",
+    ourCommitmentToQualityPoint3: "ISO 9001 quality management certified",
+    ourCommitmentToQualityPoint4:
+      "Free consultation and lighting design support",
+    ourCommitmentToQualityPoint5:
+      "Professional installation services available",
+    ourCommitmentToQualityPoint6: "24/7 customer support and maintenance",
     benefits: {
       energyEfficient: {
         title: "Energy Efficient",
-        description: "Efficient desc",
+        description:
+          "Reduce energy consumption by up to 80% compared to traditional lighting",
       },
-      costSavings: { title: "Cost Savings", description: "Savings desc" },
-      longLasting: { title: "Long Lasting", description: "Lasting desc" },
-      ecoFriendly: { title: "Eco Friendly", description: "Eco desc" },
+      costSavings: {
+        title: "Cost Savings",
+        description:
+          "Lower electricity bills and reduced long-term maintenance costs",
+      },
+      longLasting: {
+        title: "Long-Lasting",
+        description:
+          "LED bulbs last up to 25,000 hours with minimal degradation",
+      },
+      ecoFriendly: {
+        title: "Eco-Friendly",
+        description: "Environmentally sustainable with no harmful chemicals",
+      },
     },
     applications: {
       title: "Applications",
-      office: { title: "Office", description: "Office desc" },
-      industrial: { title: "Industrial", description: "Industrial desc" },
-      retail: { title: "Retail", description: "Retail desc" },
+      office: {
+        title: "Offices",
+        description: "Professional lighting for modern workspaces",
+      },
+      industrial: {
+        title: "Industrial",
+        description: "Robust lighting for factories and warehouses",
+      },
+      retail: {
+        title: "Retail",
+        description: "Attractive lighting to enhance customer experience",
+      },
     },
     stats: {
-      yearsExperience: "Years Experience",
+      yearsExperience: "Years of Experience",
       projectsCompleted: "Projects Completed",
       happyClients: "Happy Clients",
       energySaved: "Energy Saved",
     },
     cta: {
-      title: "CTA Title",
-      description: "CTA Description",
-      button: "CTA Button",
+      title: "Ready to Transform Your Space?",
+      description: "Get a custom quote for your LED lighting project today.",
+      button: "Get a Quote",
     },
   },
   about: {

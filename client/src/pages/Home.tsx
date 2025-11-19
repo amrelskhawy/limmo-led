@@ -317,11 +317,10 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             <AnimatedSection className="text-center mb-12" animation="fadeInUp">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Our Commitment to Quality
+                {t.home.ourCommitmentToQuality}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Every product is backed by industry-leading standards and
-                certifications
+                {t.home.ourCommitmentToQualityDesc}
               </p>
             </AnimatedSection>
 
@@ -333,12 +332,12 @@ export default function Home() {
               viewport={{ once: true }}
             >
               {[
-                "Energy Star certified products for maximum efficiency",
-                "5-year warranty on all LED fixtures",
-                "ISO 9001 quality management certified",
-                "Free consultation and lighting design support",
-                "Professional installation services available",
-                "24/7 customer support and maintenance",
+                t.home.ourCommitmentToQualityPoint1,
+                t.home.ourCommitmentToQualityPoint2,
+                t.home.ourCommitmentToQualityPoint3,
+                t.home.ourCommitmentToQualityPoint4,
+                t.home.ourCommitmentToQualityPoint5,
+                t.home.ourCommitmentToQualityPoint6,
               ].map((feature, index) => (
                 <motion.div
                   key={index}
