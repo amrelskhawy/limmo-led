@@ -89,6 +89,9 @@ export interface Translations {
     ourStoryDesc2: string;
     ourStoryDesc3: string;
     ourStoryDesc4: string;
+    ourMission: string;
+    ourMissionDesc: string;
+    comment: string;
     experience: string;
     clients: string;
     description: string;

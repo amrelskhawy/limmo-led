@@ -311,12 +311,10 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection animation="scaleIn" delay={0.2}>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Our Mission
+              {t.about.ourMission}
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              To empower organizations with innovative, sustainable LED lighting
-              solutions that enhance productivity, reduce costs, and protect our
-              planet for future generations.
+              {t.about.ourMissionDesc}
             </p>
             <motion.div
               className="inline-block p-8 bg-primary/10 rounded-md"
@@ -327,9 +325,7 @@ export default function About() {
               transition={{ duration: 0.2 }}
             >
               <p className="text-lg text-foreground italic">
-                "We believe that great lighting shouldn't come at the cost of
-                our environment. Every installation we complete is a step toward
-                a more sustainable future."
+                {t.about.comment}
               </p>
               <p className="text-sm text-muted-foreground mt-4">
                 — Sarah Chen, CEO & Founder

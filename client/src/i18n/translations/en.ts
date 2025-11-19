@@ -110,6 +110,9 @@ export const en: Translations = {
                   practices to help organizations reduce their carbon footprint
                   while improving their bottom line.`,
     experience: "Experience",
+    ourMission: `Our Mission`,
+    ourMissionDesc: `To empower organizations with innovative, sustainable LED lighting solutions that enhance productivity, reduce costs, and protect our planet for future generations.`,
+    comment: `"We believe that great lighting shouldn't come at the cost of our environment. Every installation we complete is a step toward a more sustainable future.`,
     clients: "Clients",
     description: "About Description",
     missionText: "Mission Text",
