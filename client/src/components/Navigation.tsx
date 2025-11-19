@@ -28,7 +28,7 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-sm"
           : "bg-transparent"
@@ -47,38 +47,39 @@ export function Navigation() {
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors hover-elevate active-elevate-2 ${
-                  location === link.href
-                    ? "text-primary"
-                    : isScrolled
-                    ? "text-foreground"
-                    : "text-foreground"
-                }`}
-                data-testid={`link-nav-${link.label.toLowerCase()}`}
-              >
-                {link.label}
+          <div className="flex items-center justify-center gap-4">
+            <div className="hidden md:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors hover-elevate active-elevate-2 ${
+                    location === link.href
+                      ? "text-primary"
+                      : isScrolled
+                      ? "text-foreground"
+                      : "text-foreground"
+                  }`}
+                  data-testid={`link-nav-${link.label.toLowerCase()}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="hidden md:flex items-center gap-3">
+              <LanguageSwitcher />
+              <Link href="/contact">
+                <Button
+                  variant="default"
+                  size="sm"
+                  data-testid="button-get-quote"
+                >
+                  {t.contact.getInTouch}
+                </Button>
               </Link>
-            ))}
+            </div>
           </div>
-
-          <div className="hidden md:flex items-center gap-3">
-            <LanguageSwitcher />
-            <Link href="/contact">
-              <Button
-                variant="default"
-                size="sm"
-                data-testid="button-get-quote"
-              >
-                {t.contact.getInTouch}
-              </Button>
-            </Link>
-          </div>
-
           <button
             className="md:hidden p-2 rounded-md hover-elevate active-elevate-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

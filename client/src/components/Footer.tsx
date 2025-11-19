@@ -12,7 +12,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Lightbulb className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold">LuminaTech</span>
+              <span className="text-xl font-bold">{t.footer.companyName}</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
               {t.footer.description}
@@ -99,7 +99,7 @@ export function Footer() {
 
           <div>
             <h3 className="font-semibold text-foreground mb-4">
-              Product Categories
+              {t.footer.productCategories}
             </h3>
             <ul className="space-y-3">
               <li>
@@ -108,7 +108,7 @@ export function Footer() {
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="link-category-office"
                 >
-                  Office Lighting
+                  {t.footer.categories?.office}
                 </a>
               </li>
               <li>
@@ -117,7 +117,7 @@ export function Footer() {
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="link-category-industrial"
                 >
-                  Industrial Solutions
+                  {t.footer.categories?.industrial}
                 </a>
               </li>
               <li>
@@ -126,7 +126,7 @@ export function Footer() {
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="link-category-outdoor"
                 >
-                  Outdoor Lighting
+                  {t.footer.categories?.outdoor}
                 </a>
               </li>
               <li>
@@ -135,7 +135,7 @@ export function Footer() {
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="link-category-retail"
                 >
-                  Retail Lighting
+                  {t.footer.categories?.retail}
                 </a>
               </li>
             </ul>
@@ -148,9 +148,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-5 w-5 mt-0.5 flex-shrink-0" />
-                <span data-testid="text-address">
-                  123 Innovation Drive, Tech Park, CA 94025
-                </span>
+                <span data-testid="text-address">{t.footer.addressLine}</span>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-5 w-5 flex-shrink-0" />
@@ -181,7 +179,8 @@ export function Footer() {
             className="text-sm text-muted-foreground"
             data-testid="text-copyright"
           >
-            © {new Date().getFullYear()} LuminaTech. All rights reserved.
+            © {new Date().getFullYear()} {t.footer.companyName}.{" "}
+            {t.footer.allRightsReserved}
           </p>
           <div className="flex gap-6">
             <a
@@ -189,14 +188,14 @@ export function Footer() {
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               data-testid="link-privacy"
             >
-              Privacy Policy
+              {t.footer.privacyPolicy}
             </a>
             <a
               href="#"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               data-testid="link-terms"
             >
-              Terms of Service
+              {t.footer.termsOfService}
             </a>
           </div>
         </div>

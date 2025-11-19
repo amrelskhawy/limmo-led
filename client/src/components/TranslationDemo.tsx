@@ -8,19 +8,19 @@ export function TranslationDemo() {
   return (
     <Card className="max-w-lg mx-auto m-8">
       <CardHeader className="flex flex-row items-center justify-between space-y-0">
-        <CardTitle>Translation Demo</CardTitle>
+        <CardTitle>{t.common.translationDemo}</CardTitle>
         <LanguageSwitcher />
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
           <p className="text-sm text-muted-foreground mb-2">
-            Current Language:
+            {t.common.currentLanguage}
           </p>
           <p className="font-medium">
-            {language === "en" ? "English" : "العربية"}
+            {language === "en" ? t.common.english : t.common.arabic}
           </p>
           <p className="text-xs text-muted-foreground">
-            Direction: {isRTL ? "RTL" : "LTR"}
+            {t.common.direction} {isRTL ? "RTL" : "LTR"}
           </p>
         </div>
 

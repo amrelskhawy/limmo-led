@@ -16,11 +16,13 @@ import {
   Thermometer,
 } from "lucide-react";
 import type { Product } from "@shared/schema";
+import { useTranslation } from "@/i18n/context";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/products/:id");
   const [, setLocation] = useLocation();
   const productId = params?.id;
+  const { t } = useTranslation();
 
   const { data: product, isLoading } = useQuery<Product>({
     queryKey: ["/api/products", productId],
@@ -70,10 +72,10 @@ export default function ProductDetail() {
       <div className="min-h-screen pt-16 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-foreground mb-4">
-            Product not found
+            {t.products.productNotFound}
           </h1>
           <Link href="/products">
-            <Button variant="default">Back to Products</Button>
+            <Button variant="default">{t.products.backToProducts}</Button>
           </Link>
         </div>
       </div>
@@ -81,14 +83,26 @@ export default function ProductDetail() {
   }
 
   const specs = [
-    { icon: Zap, label: "Wattage", value: product.wattage },
-    { icon: Zap, label: "Lumens", value: product.lumens },
+    {
+      icon: Zap,
+      label: t.products.specLabels?.wattage ?? "Wattage",
+      value: product.wattage,
+    },
+    {
+      icon: Zap,
+      label: t.products.specLabels?.lumens ?? "Lumens",
+      value: product.lumens,
+    },
     {
       icon: Thermometer,
-      label: "Color Temperature",
+      label: t.products.specLabels?.colorTemperature ?? "Color Temperature",
       value: product.colorTemperature,
     },
-    { icon: Clock, label: "Lifespan", value: product.lifespan },
+    {
+      icon: Clock,
+      label: t.products.specLabels?.lifespan ?? "Lifespan",
+      value: product.lifespan,
+    },
   ];
 
   return (
@@ -101,7 +115,7 @@ export default function ProductDetail() {
             data-testid="button-back"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Products
+            {t.products.backToProducts}
           </Button>
         </Link>
 
@@ -164,7 +178,7 @@ export default function ProductDetail() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-foreground mb-4">
-                  Key Features
+                  {t.products.keyFeatures}
                 </h3>
                 <div className="space-y-3">
                   {product.features.map((feature, index) => (
