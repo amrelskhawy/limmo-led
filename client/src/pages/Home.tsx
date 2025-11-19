@@ -217,69 +217,6 @@ export default function Home() {
         </div>
       </section>
 
-      <SectionSeparator variant="dots" />
-
-      <section className="py-24 bg-card">
-        <div className="max-w-7xl mx-auto px-6">
-          <AnimatedSection
-            className="text-center mb-16"
-            animation="fadeInUp"
-            delay={0.2}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              {t.home.applications.title}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t.home.heroDescription}
-            </p>
-          </AnimatedSection>
-
-          <StaggeredGrid
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            staggerDelay={0.15}
-          >
-            {categories.map((category, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -8, scale: 1.03 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card
-                  className="group hover-elevate active-elevate-2 transition-all duration-300 h-full"
-                  data-testid={`card-category-${category.category}`}
-                >
-                  <CardContent className="p-8 text-center">
-                    <motion.div
-                      className="w-16 h-16 bg-primary/10 rounded-md flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors"
-                      whileHover={{ scale: 1.15, rotate: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <category.icon className="h-8 w-8 text-primary" />
-                    </motion.div>
-                    <h3 className="text-2xl font-semibold text-foreground mb-3">
-                      {category.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-6">
-                      {category.description}
-                    </p>
-                    <Link href={`/products?category=${category.category}`}>
-                      <Button
-                        variant="ghost"
-                        className="gap-2"
-                        data-testid={`button-category-${category.category}`}
-                      >
-                        {t.home.learnMore}
-                        <ArrowRight className="h-4 w-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </StaggeredGrid>
-        </div>
-      </section>
-
       <SectionSeparator variant="line" />
 
       <section className="py-24 bg-primary text-primary-foreground">
@@ -309,59 +246,6 @@ export default function Home() {
               </motion.div>
             ))}
           </StaggeredGrid>
-        </div>
-      </section>
-
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <AnimatedSection className="text-center mb-12" animation="fadeInUp">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                {t.home.ourCommitmentToQuality}
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                {t.home.ourCommitmentToQualityDesc}
-              </p>
-            </AnimatedSection>
-
-            <motion.div
-              className="space-y-4"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ staggerChildren: 0.1, delayChildren: 0.3 }}
-              viewport={{ once: true }}
-            >
-              {[
-                t.home.ourCommitmentToQualityPoint1,
-                t.home.ourCommitmentToQualityPoint2,
-                t.home.ourCommitmentToQualityPoint3,
-                t.home.ourCommitmentToQualityPoint4,
-                t.home.ourCommitmentToQualityPoint5,
-                t.home.ourCommitmentToQualityPoint6,
-              ].map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start gap-3"
-                  data-testid={`feature-${index}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ x: 10, transition: { duration: 0.2 } }}
-                >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                  </motion.div>
-                  <span className="text-foreground">{feature}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
         </div>
       </section>
 

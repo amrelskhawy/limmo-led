@@ -22,9 +22,56 @@ export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { data: products, isLoading } = useQuery<Product[]>({
-    queryKey: ["/api/products"],
-  });
+  // const { data: products, isLoading } = useQuery<Product[]>({
+  //   queryKey: ["/api/products"],
+  // });
+
+  // Static products for demo
+  const products: Product[] = [
+    {
+      id: "1",
+      name: "LED Panel Light",
+      description: "High-efficiency LED panel for office use.",
+      imageUrl: "/images/led-panel.jpg",
+      category: "office",
+      wattage: "36W",
+      lumens: "3200lm",
+      price: 49.99,
+      features: ["Slim design", "Energy efficient", "Easy installation"],
+      specifications: "600x600mm, 220V",
+      colorTemperature: "4000K",
+      lifespan: "50,000h",
+    },
+    {
+      id: "2",
+      name: "Industrial Flood Light",
+      description: "Robust lighting for industrial environments.",
+      imageUrl: "/images/flood-light.jpg",
+      category: "industrial",
+      wattage: "100W",
+      lumens: "9000lm",
+      price: 129.99,
+      features: ["IP65 waterproof", "High brightness", "Long lifespan"],
+      specifications: "Aluminum body, 220V",
+      colorTemperature: "6000K",
+      lifespan: "40,000h",
+    },
+    {
+      id: "3",
+      name: "Retail Track Light",
+      description: "Adjustable track lighting for retail spaces.",
+      imageUrl: "/images/track-light.jpg",
+      category: "retail",
+      wattage: "20W",
+      lumens: "1800lm",
+      price: 34.99,
+      features: ["Adjustable angle", "Modern look", "Easy mounting"],
+      specifications: "Track mount, 220V",
+      colorTemperature: "3000K",
+      lifespan: "30,000h",
+    },
+  ];
+  const isLoading = false;
 
   const categories = [
     { id: "all", label: t.products.allProducts },
@@ -141,7 +188,7 @@ export default function Products() {
                     <CardContent className="p-0">
                       <div className="relative overflow-hidden bg-muted aspect-square">
                         <img
-                          src={product.imageUrl}
+                          src={window.location.origin + product.imageUrl}
                           alt={product.name}
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
