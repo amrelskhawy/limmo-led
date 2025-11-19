@@ -109,7 +109,7 @@ export default function ProductDetail() {
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div className="sticky top-24 h-fit">
+          <div className="lg:sticky lg:top-24 h-fit">
             <Card className="overflow-hidden">
               <CardContent className="p-0">
                 <div className="relative bg-muted aspect-square">
