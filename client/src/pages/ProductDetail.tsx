@@ -4,9 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { AnimatedSection } from "@/components/ui/animated-section";
-import { StaggeredGrid } from "@/components/ui/staggered-grid";
-import { motion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
@@ -24,19 +21,58 @@ export default function ProductDetail() {
   const productId = params?.id;
   const { t } = useTranslation();
 
-  const { data: product, isLoading } = useQuery<Product>({
-    queryKey: ["/api/products", productId],
-    enabled: !!productId,
-  });
+  // Static products (should match Products.tsx)
+  const products: Product[] = [
+    {
+      id: "1",
+      name: "LED Panel Light",
+      description: "High-efficiency LED panel for office use.",
+      imageUrl: "/images/led-panel.jpg",
+      category: "office",
+      wattage: "36W",
+      lumens: "3200lm",
+      price: 49.99,
+      features: ["Slim design", "Energy efficient", "Easy installation"],
+      specifications: "600x600mm, 220V",
+      colorTemperature: "4000K",
+      lifespan: "50,000h",
+    },
+    {
+      id: "2",
+      name: "Industrial Flood Light",
+      description: "Robust lighting for industrial environments.",
+      imageUrl: "/images/flood-light.jpg",
+      category: "industrial",
+      wattage: "100W",
+      lumens: "9000lm",
+      price: 129.99,
+      features: ["IP65 waterproof", "High brightness", "Long lifespan"],
+      specifications: "Aluminum body, 220V",
+      colorTemperature: "6000K",
+      lifespan: "40,000h",
+    },
+    {
+      id: "3",
+      name: "Retail Track Light",
+      description: "Adjustable track lighting for retail spaces.",
+      imageUrl: "/images/track-light.jpg",
+      category: "retail",
+      wattage: "20W",
+      lumens: "1800lm",
+      price: 34.99,
+      features: ["Adjustable angle", "Modern look", "Easy mounting"],
+      specifications: "Track mount, 220V",
+      colorTemperature: "3000K",
+      lifespan: "30,000h",
+    },
+  ];
 
-  const { data: allProducts } = useQuery<Product[]>({
-    queryKey: ["/api/products"],
-  });
+  const product = products.find((p) => p.id === productId);
+  const isLoading = false;
 
-  const relatedProducts =
-    allProducts
-      ?.filter((p) => p.category === product?.category && p.id !== product?.id)
-      .slice(0, 3) || [];
+  const relatedProducts = products
+    .filter((p) => p.category === product?.category && p.id !== product?.id)
+    .slice(0, 3);
 
   const handleRequestQuote = () => {
     if (product) {
@@ -251,7 +287,7 @@ export default function ProductDetail() {
                   <CardContent className="p-0">
                     <div className="relative overflow-hidden bg-muted aspect-square">
                       <img
-                        src={relatedProduct.imageUrl}
+                        src={window.location.origin + relatedProduct.imageUrl}
                         alt={relatedProduct.name}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />

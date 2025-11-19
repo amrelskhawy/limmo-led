@@ -27,8 +27,9 @@ export default function Products() {
   // });
 
   // Static products for demo
-  const products: InsertProduct[] = [
+  const products: Product[] = [
     {
+      id: "1",
       name: "LED Panel Pro 600",
       category: "office",
       description:
@@ -50,6 +51,7 @@ export default function Products() {
       lifespan: "50,000 hours",
     },
     {
+      id: "2",
       name: "Industrial High Bay 200W",
       category: "industrial",
       description:
@@ -72,6 +74,7 @@ export default function Products() {
       lifespan: "60,000 hours",
     },
     {
+      id: "3",
       name: "Outdoor Floodlight 150W",
       category: "outdoor",
       description:
@@ -94,6 +97,7 @@ export default function Products() {
       lifespan: "50,000 hours",
     },
     {
+      id: "4",
       name: "Retail Track Spotlight 30W",
       category: "retail",
       description:
@@ -116,6 +120,7 @@ export default function Products() {
       lifespan: "50,000 hours",
     },
     {
+      id: "5",
       name: "LED Tube Light T8 120cm",
       category: "office",
       description:
@@ -138,6 +143,7 @@ export default function Products() {
       lifespan: "50,000 hours",
     },
     {
+      id: "6",
       name: "Smart Downlight 12W",
       category: "office",
       description:
