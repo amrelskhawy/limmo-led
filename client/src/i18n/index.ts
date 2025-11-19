@@ -85,6 +85,10 @@ export interface Translations {
     values: string;
     ourTeam: string;
     ourStory: string;
+    ourStoryDesc1: string;
+    ourStoryDesc2: string;
+    ourStoryDesc3: string;
+    ourStoryDesc4: string;
     experience: string;
     clients: string;
     description: string;
@@ -102,6 +106,8 @@ export interface Translations {
       certification: { title: string; description: string };
       expansion: { title: string; description: string };
       innovation: { title: string; description: string };
+      projectsCompleted: string;
+      organizationsServed: string;
     };
     storyHeading: string;
     story: string;
@@ -120,6 +126,10 @@ export interface Translations {
     missionDescription: string;
     missionQuote: string;
     missionAuthor: string;
+    installationsValue: string;
+    organizationsValue: string;
+    energySavingsValue: string;
+    supportValue: string;
   };
 
   products: {

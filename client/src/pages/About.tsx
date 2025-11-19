@@ -96,10 +96,7 @@ export default function About() {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
-                  Founded in 2015, LuminaTech emerged from a simple observation:
-                  organizations were spending too much on outdated lighting
-                  technology while compromising both efficiency and
-                  sustainability.
+                  {t.about.ourStoryDesc1}
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -107,11 +104,7 @@ export default function About() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
                 >
-                  Our founders, a team of electrical engineers and
-                  sustainability advocates, set out to change this. They
-                  envisioned a world where every workspace could benefit from
-                  intelligent, energy-efficient LED lighting without breaking
-                  the budget.
+                  {t.about.ourStoryDesc2}
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -119,11 +112,7 @@ export default function About() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   viewport={{ once: true }}
                 >
-                  Today, we've grown from a small startup to a leading provider
-                  of commercial LED solutions, serving over 500 organizations
-                  and completing more than 10,000 installations worldwide. Our
-                  commitment to innovation, quality, and customer satisfaction
-                  has remained unwavering.
+                  {t.about.ourStoryDesc3}
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -131,10 +120,7 @@ export default function About() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  Every product we design is built with the future in
-                  mind—combining cutting-edge technology with sustainable
-                  practices to help organizations reduce their carbon footprint
-                  while improving their bottom line.
+                  {t.about.ourStoryDesc4}
                 </motion.p>
               </div>
             </AnimatedSection>

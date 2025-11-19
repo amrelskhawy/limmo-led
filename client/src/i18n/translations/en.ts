@@ -81,12 +81,34 @@ export const en: Translations = {
     },
   },
   about: {
+    installationsValue: "10K+",
+    organizationsValue: "500+",
+    energySavingsValue: "80%",
+    supportValue: "24/7",
     title: "About Title",
     mission: "Mission",
     vision: "Vision",
     values: "Values",
     ourTeam: "Our Team",
     ourStory: "Our Story",
+    ourStoryDesc1: `Founded in 2015, LuminaTech emerged from a simple observation:
+      organizations were spending too much on outdated lighting
+      technology while compromising both efficiency and
+      sustainability.`,
+    ourStoryDesc2: `Our founders, a team of electrical engineers and
+                  sustainability advocates, set out to change this. They
+                  envisioned a world where every workspace could benefit from
+                  intelligent, energy-efficient LED lighting without breaking
+                  the budget.`,
+    ourStoryDesc3: `Today, we've grown from a small startup to a leading provider
+                  of commercial LED solutions, serving over 500 organizations
+                  and completing more than 10,000 installations worldwide. Our
+                  commitment to innovation, quality, and customer satisfaction
+                  has remained unwavering.`,
+    ourStoryDesc4: `Every product we design is built with the future in
+                  mind—combining cutting-edge technology with sustainable
+                  practices to help organizations reduce their carbon footprint
+                  while improving their bottom line.`,
     experience: "Experience",
     clients: "Clients",
     description: "About Description",
@@ -113,6 +135,8 @@ export const en: Translations = {
       },
       expansion: { title: "Expansion", description: "Expansion desc" },
       innovation: { title: "Innovation", description: "Innovation desc" },
+      projectsCompleted: "10,000+ Projects Completed",
+      organizationsServed: "Reached milestone of serving 500+ organizations",
     },
     storyHeading: "Story Heading",
     story: "Story",
