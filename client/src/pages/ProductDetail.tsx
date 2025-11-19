@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { Link, useRoute, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,60 +11,14 @@ import {
   Clock,
   Thermometer,
 } from "lucide-react";
-import type { Product } from "@shared/schema";
 import { useTranslation } from "@/i18n/context";
+import { products } from "@/lib/products";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/products/:id");
   const [, setLocation] = useLocation();
   const productId = params?.id;
   const { t } = useTranslation();
-
-  // Static products (should match Products.tsx)
-  const products: Product[] = [
-    {
-      id: "1",
-      name: "LED Panel Light",
-      description: "High-efficiency LED panel for office use.",
-      imageUrl: "/images/led-panel.jpg",
-      category: "office",
-      wattage: "36W",
-      lumens: "3200lm",
-      price: 49.99,
-      features: ["Slim design", "Energy efficient", "Easy installation"],
-      specifications: "600x600mm, 220V",
-      colorTemperature: "4000K",
-      lifespan: "50,000h",
-    },
-    {
-      id: "2",
-      name: "Industrial Flood Light",
-      description: "Robust lighting for industrial environments.",
-      imageUrl: "/images/flood-light.jpg",
-      category: "industrial",
-      wattage: "100W",
-      lumens: "9000lm",
-      price: 129.99,
-      features: ["IP65 waterproof", "High brightness", "Long lifespan"],
-      specifications: "Aluminum body, 220V",
-      colorTemperature: "6000K",
-      lifespan: "40,000h",
-    },
-    {
-      id: "3",
-      name: "Retail Track Light",
-      description: "Adjustable track lighting for retail spaces.",
-      imageUrl: "/images/track-light.jpg",
-      category: "retail",
-      wattage: "20W",
-      lumens: "1800lm",
-      price: 34.99,
-      features: ["Adjustable angle", "Modern look", "Easy mounting"],
-      specifications: "Track mount, 220V",
-      colorTemperature: "3000K",
-      lifespan: "30,000h",
-    },
-  ];
 
   const product = products.find((p) => p.id === productId);
   const isLoading = false;
